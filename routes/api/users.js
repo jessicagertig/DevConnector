@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 const { check, validationResult } = require('express-validator/check');
 //import User model
 const User = require('../../models/User');
@@ -62,8 +64,21 @@ router.post(
       await user.save();
 
       //Return jsonwebtoken (so after registration user can be logged in immediately)
+      const payload = {
+        user: {
+          id: user.id, //mongoose abstracts away the _id format on mongoDB to just id
+        },
+      };
 
-      res.send('User registered');
+      jwt.sign(
+        payload,
+        config.get('jwtSecret'),
+        { expiresIn: 360000 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server error');
