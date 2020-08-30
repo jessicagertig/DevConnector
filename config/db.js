@@ -5,6 +5,7 @@ const db = config.get('mongoURI');
 const connectDB = async () => {
   try {
     await mongoose.connect(db, {
+      //all of the below settings were created due to deprecations and based on Mongoose warnings
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
