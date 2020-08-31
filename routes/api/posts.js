@@ -2,18 +2,17 @@ const express = require('express');
 const router = express.Router();
 const {
   check,
-  validationREsult,
-  validationResult,
+  validationResult
 } = require('express-validator');
 const auth = require('../../middleware/auth');
 
 const Post = require('../../models/Post');
 const Profiles = require('../../models/Profiles');
-const User = require('../../models/user');
+const User = require('../../models/User');
 
-//@route   Post api/posts
-//@desc    Create a post
-//@access  Private
+// @route   Post api/posts
+// @desc    Create a post
+// @access  Private
 router.post(
   '/',
   [auth, [check('text', 'Text is required').not().isEmpty()]],
