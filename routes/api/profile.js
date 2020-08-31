@@ -163,7 +163,7 @@ router.delete('/', auth, async (req, res) => {
 //@route   PUT api/profile/experience
 //@desc    Add profile experience
 //@access  Private
-router.put('/experience'),
+router.put('/experience',
   [
     auth,
     [
@@ -200,7 +200,7 @@ router.put('/experience'),
 
     try {
       const profile = await Profile.findOne({ user: req.user.id });
-
+      
       profile.experience.unshift(newExp);
 
       await profile.save();
@@ -210,6 +210,7 @@ router.put('/experience'),
       console.error(err.message);
       res.status(500).send('Server Error');
     }
-  };
+  });
+
 
 module.exports = router;
