@@ -18,14 +18,14 @@ const PostSchema = new Schema({
   likes: [
     {
       user: {
-        types: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
       }
     }
   ],
   comments: [
     {
       user: {
-        types: Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
       },
       text: {
         type: String,
