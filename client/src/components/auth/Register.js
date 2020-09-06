@@ -21,7 +21,7 @@ const Register = ({ setAlert }) => {
     e.preventDefault();
     if (password !== password2) {
       //alert type is set up through css file
-      setAlert('Passwords do not match.', 'danger');
+      setAlert('Passwords do not match', 'danger');
     } else {
       console.log('SUCCESS!');
     }
