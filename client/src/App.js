@@ -13,14 +13,13 @@ import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
 
-//runs everytime App is mounted
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
-
 const App = () => {
   useEffect(() => {
-    store.dispatch(loadUser());
+    //check for token in LS and load user
+    if (localStorage.token){
+      setAuthToken(localStorage.token);
+      store.dispatch(loadUser());
+    }
   }, []); //this runs everytime App is mounted, just once
 
   return (
