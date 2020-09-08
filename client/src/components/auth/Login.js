@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import 
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { login } from '../../actions/auth';
+import { setAlert } from '../../actions/alert';
 
-const Login = () => {
+const Login = ({ login }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -17,7 +18,7 @@ const Login = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-      console.log('SUCCESS!')
+    login(email, password);
   };
 
   return (
@@ -56,4 +57,9 @@ const Login = () => {
   );
 };
 
-export default Login
+Login.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setAlert, login })(Login);
