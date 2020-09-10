@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addEducation } from '../../actions/profile';
 
-const AddEducation = ({ addExperience, history }) => {
+const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
     school: '',
     degree: '',
@@ -95,7 +95,7 @@ const AddEducation = ({ addExperience, history }) => {
                 toggleDateDisabled(!toDateDisabled);
               }}
             />{' '}
-            Current Job
+            Current School
           </p>
         </div>
         <div className='form-group'>
