@@ -67,7 +67,7 @@ const EditProfile = ({
 
   const onSubmit = e => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, history, true);
   };
 
   return (
@@ -236,10 +236,10 @@ const EditProfile = ({
           </Fragment>
         )}
 
-        <input type='submit' className='btn btn-primary my-1' />
-        <a className='btn btn-light my-1' href='dashboard.html'>
+        <input type='submit' className='btn btn-primary my-1'/>
+        <Link to='/dashboard' className='btn btn-light my-1' >
           Go Back
-        </a>
+        </Link>
       </form>
     </Fragment>
   );
@@ -251,9 +251,9 @@ EditProfile.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = {
+const mapStateToProps = state => ({
   profile: state.profile,
-};
+});
 
 //must wrap withRouter to be able to use history object from props
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(

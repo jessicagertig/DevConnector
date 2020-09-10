@@ -1,8 +1,8 @@
 import React, { useState, Fragment } from 'react';
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile } from '../../actions/profile'
+import { createProfile } from '../../actions/profile';
 
 const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ const CreateProfile = ({ createProfile, history }) => {
   const onSubmit = e => {
     e.preventDefault();
     createProfile(formData, history);
-  }
+  };
 
   return (
     <Fragment>
@@ -212,9 +212,9 @@ const CreateProfile = ({ createProfile, history }) => {
         )}
 
         <input type='submit' className='btn btn-primary my-1' />
-        <a className='btn btn-light my-1' href='dashboard.html'>
+        <Link to='/dashboard' className='btn btn-light my-1'>
           Go Back
-        </a>
+        </Link>
       </form>
     </Fragment>
   );
