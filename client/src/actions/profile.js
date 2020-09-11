@@ -5,6 +5,7 @@ import {
   GET_PROFILE,
   PROFILE_ERROR,
   UPDATE_PROFILE,
+  CLEAR_PROFILE,
   ACCOUNT_DELETED,
 } from './types';
 
@@ -140,7 +141,7 @@ export const deleteExperience = id => async dispatch => {
       payload: res.data,
     });
 
-    dispactch(setAlert('Experience Removed', 'success'));
+    dispatch(setAlert('Experience Removed', 'success'));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -159,7 +160,7 @@ export const deleteEducation = id => async dispatch => {
       payload: res.data,
     });
 
-    dispactch(setAlert('Education Removed', 'success'));
+    dispatch(setAlert('Education Removed', 'success'));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -181,7 +182,7 @@ export const deleteAccount = () => async dispatch => {
     } catch (err) {
       dispatch({
         type: PROFILE_ERROR,
-        palyod: { msg: err.response.statusText, status: err.response.status },
+        payload: { msg: err.response.statusText, status: err.response.status },
       });
     }
   }
