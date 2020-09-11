@@ -124,3 +124,23 @@ export const addEducation = (formData, history) => async dispatch => {
     });
   }
 };
+
+// Delete an experience
+export const deleteExperience = id => async dispatch => {
+  try {
+      const res = await axios.delete(`/api/profile/experience/${id}`);
+
+      dispatch({
+        type: UPDATE_PROFILE,
+        payload: res.data
+      });
+
+      dispactch(setAlert('Experience Removed', 'success'))
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      palyod: { msg: err.response.statusText, status: err.response.status }
+    })
+  }
+}
+
