@@ -9,7 +9,9 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     getProfiles();
   }, []);
 
-  return <div></div>;
+  console.log('profiles', profiles)
+
+  return <div>Profiles</div>;
 };
 
 Profiles.propTypes = {
