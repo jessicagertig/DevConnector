@@ -11,7 +11,10 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 
   console.log('profiles', profiles)
 
-  return <div>Profiles</div>;
+  return <Fragment>
+    { loading ? <Spinner /> : <Fragment>
+      
+      </Fragment>};
 };
 
 Profiles.propTypes = {
