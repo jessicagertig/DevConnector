@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
+const normalize = require('normalize-url')
 //import User model
 const User = require('../../models/User');
 
@@ -42,11 +43,14 @@ router.post(
       }
 
       //Get user's gravatar
-      const avatar = gravatar.url(email, {
-        s: '200', //size
-        r: 'pg', //rating
-        d: 'mm', //provides default image if none
-      });
+      const avatar = normalize(
+          gravatar.url(email, {
+          s: '200', //size
+          r: 'pg', //rating
+          d: 'mm', //provides default image if none
+        }),
+        { forceHttps: true }
+      );
       //creates new instance of user, but we will not save user until password is hashed
       user = new User({
         name,

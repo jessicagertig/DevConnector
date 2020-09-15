@@ -7,7 +7,7 @@ const config = require('config');
 
 const User = require('../../models/User');
 const Profiles = require('../../models/Profiles');
-const Post = require('../../models/Post')
+const Post = require('../../models/Post');
 
 //@route   GET api/profile/me
 //@desc    Get current user's profile
@@ -85,11 +85,11 @@ router.post(
 
     //update and insert data
     try {
-      let profile = await Profile.findOne({ user: req.user.id });
+      let profile = await Profiles.findOne({ user: req.user.id });
 
       if (profile) {
         //Update
-        profile = await Profile.findOneAndUpdate(
+        profile = await Profiles.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },
           { new: true }
@@ -280,7 +280,7 @@ router.put(
     };
 
     try {
-      const profile = await Profile.findOne({ user: req.user.id });
+      const profile = await Profiles.findOne({ user: req.user.id });
 
       profile.education.unshift(newEdu);
 
@@ -300,7 +300,7 @@ router.put(
 router.delete('/education/:edu_id', auth, async (req, res) => {
   try {
     // Get correct  profile
-    const profile = await Profile.findOne({ user: req.user.id });
+    const profile = await Profiles.findOne({ user: req.user.id });
     // Get remove index
     const removeIndex = profile.education
       .map(item => item.id)
@@ -323,13 +323,14 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 router.get('/github/:username', (req, res) => {
   try {
     const options = {
-      uri: `https://api.github.com/users/${
-        req.params.username
-      }/repos?per_page=5&sort=created:asc&client_id=${config.get(
-        'githubClientId'
-      )}&client_secret=${config.get('githubSecret')}`,
+      uri: encodeURI(
+        `https://api.github.com/users/${req.params.username}/repos?Per_page=5&sort=created:asc`
+      ),
       method: 'GET',
-      headers: { 'user-agent': 'node.js' }
+      headers: {
+        'user-agent': 'node.js',
+        'Authorizaton': `token ${config.get('githubToken')}`,
+      },
     };
 
     request(options, (error, response, body) => {
