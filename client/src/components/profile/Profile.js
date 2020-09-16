@@ -3,9 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import Spinner from '../layout/Spinner'
-import { getProfileById } from '../../actions/profile'
+import { getProfileById, getProfiles } from '../../actions/profile'
 
-const Profile = ({}) => {
+const Profile = ({ getProfileById, auth, profile: { profile, loading }, match }) => {
+
+  useEffect(() => {
+    getProfileById(match.params.id)
+  }, [getProfileById])
+
   return (
     <div>
       Profile
