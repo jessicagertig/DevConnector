@@ -26,8 +26,8 @@ const App = () => {
     //check for token in LS and load user
     if (localStorage.token) {
       setAuthToken(localStorage.token);
-      store.dispatch(loadUser());
     }
+    store.dispatch(loadUser());
   }, []); //this runs everytime App is mounted, just once
 
   return (
