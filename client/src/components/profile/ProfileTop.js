@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 const ProfileTop = ({
   profile: {
@@ -21,24 +20,27 @@ const ProfileTop = ({
       </p>
         <p>{location && <span>{location}</span>}</p>
       <div class='icons my-1'>
-        <Link to={website} target='_blank' rel='noopener noreferrer'>
-          <i class='fas fa-globe fa-2x'></i>
-        </Link>
-        <Link to='#' target='_blank' rel='noopener noreferrer'>
+        {
+          website && 
+          <a href={website} target='_blank' rel='noopener noreferrer'>
+            <i class='fas fa-globe fa-2x'></i>
+          </a>
+        }
+        <a href='#' target='_blank' rel='noopener noreferrer'>
           <i class='fab fa-twitter fa-2x'></i>
-        </Link>
-        <Link to='#' target='_blank' rel='noopener noreferrer'>
+        </a>
+        <a href='#' target='_blank' rel='noopener noreferrer'>
           <i class='fab fa-facebook fa-2x'></i>
-        </Link>
-        <Link to='#' target='_blank' rel='noopener noreferrer'>
+        </a>
+        <a href='#' target='_blank' rel='noopener noreferrer'>
           <i class='fab fa-linkedin fa-2x'></i>
-        </Link>
-        <Link to='#' target='_blank' rel='noopener noreferrer'>
+        </a>
+        <a href='#' target='_blank' rel='noopener noreferrer'>
           <i class='fab fa-youtube fa-2x'></i>
-        </Link>
-        <Link to='#' target='_blank' rel='noopener noreferrer'>
+        </a>
+        <a href='#' target='_blank' rel='noopener noreferrer'>
           <i class='fab fa-instagram fa-2x'></i>
-        </Link>
+        </a>
       </div>
     </div>
   );
