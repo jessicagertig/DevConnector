@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import Spinner from '../layout/Spinner'
-import { getProfileById, getProfiles } from '../../actions/profile'
+import { getProfileById } from '../../actions/profile'
 
 const Profile = ({ getProfileById, auth, profile: { profile, loading }, match }) => {
 
