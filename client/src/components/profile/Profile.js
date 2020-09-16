@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -12,9 +12,9 @@ const Profile = ({ getProfileById, auth, profile: { profile, loading }, match })
   }, [getProfileById])
 
   return (
-    <div>
-      Profile
-    </div>
+  <Fragment>
+    {profile === null || loading ? <Spinner /> : <Fragment></Fragment>}
+  </Fragment>
   )
 }
 
