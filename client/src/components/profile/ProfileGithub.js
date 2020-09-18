@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import Spinner from '../layout/Spinner'
 import { getGithubRepos } from '../../actions/profile'
 
-const ProfileGithub = ({ username, getGitHubRepos, repos }) => {
+const ProfileGithub = ({ username, getGithubRepos, repos }) => {
 
   useEffect(() => {
-    getGitHubRepos(username)
-  }, [getGitHubRepos, username])
+    getGithubRepos(username)
+  }, [getGithubRepos, username])
   return <div />
 }
 
