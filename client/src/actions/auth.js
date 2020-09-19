@@ -8,7 +8,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CLEAR_PROFILE
+  CLEAR_PROFILE,
 } from './types';
 
 //Load USER
@@ -28,8 +28,7 @@ export const loadUser = () => async dispatch => {
 };
 
 //Register User
-export const register = (formData) => async dispatch => {
-
+export const register = formData => async dispatch => {
   try {
     const res = await axios.post('/api/users', formData);
 
@@ -75,6 +74,6 @@ export const login = (email, password) => async dispatch => {
 
 // Logout / Clear Profile
 export const logout = () => dispatch => {
-  dispatch({ type: CLEAR_PROFILE })
-  dispatch({ type: LOGOUT })
-}
+  dispatch({ type: CLEAR_PROFILE });
+  dispatch({ type: LOGOUT });
+};

@@ -9,7 +9,7 @@ const Alert = ({ alerts }) =>
   alerts.map(alert => (
     //the className is set up to dynamically take variables, in this case alertType is danger, which creates the styling
     <div key={alert.id} className={`alert alert-${alert.alertType}`}>
-      { alert.msg }
+      {alert.msg}
     </div>
   ));
 

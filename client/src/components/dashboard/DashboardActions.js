@@ -17,4 +17,4 @@ const DashboardActions = () => {
   );
 };
 
-export default DashboardActions
+export default DashboardActions;

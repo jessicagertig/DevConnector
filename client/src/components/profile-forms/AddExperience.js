@@ -30,10 +30,13 @@ const AddExperience = ({ addExperience, history }) => {
         positions that you have had in the past
       </p>
       <small>* = required field</small>
-      <form className='form' onSubmit={e => {
-        e.preventDefault();
-        addExperience(formData, history)
-      }}>
+      <form
+        className='form'
+        onSubmit={e => {
+          e.preventDefault();
+          addExperience(formData, history);
+        }}
+      >
         <div className='form-group'>
           <input
             type='text'

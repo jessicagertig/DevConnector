@@ -6,7 +6,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  ACCOUNT_DELETED
+  ACCOUNT_DELETED,
 } from '../actions/types';
 
 const initialState = {
@@ -25,8 +25,8 @@ export default function (state = initialState, action) {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: payload
-      }
+        user: payload,
+      };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       return {
@@ -35,7 +35,7 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         loading: false,
       };
-      //Can set more than one case to the same 'results'
+    //Can set more than one case to the same 'results'
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
@@ -46,7 +46,7 @@ export default function (state = initialState, action) {
         token: null,
         isAuthenticated: false,
         loading: false,
-        user: null
+        user: null,
       };
     default:
       return state;

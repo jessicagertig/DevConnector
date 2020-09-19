@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
-import { deleteEducation } from '../../actions/profile'
+import { deleteEducation } from '../../actions/profile';
 
 const Education = ({ education, deleteEducation }) => {
   const educations = education.map(edu => (
@@ -18,7 +18,12 @@ const Education = ({ education, deleteEducation }) => {
         )}
       </td>
       <td>
-        <button onClick={() => deleteEducation(edu.id)} className='btn btn-danger'>Delete</button>
+        <button
+          onClick={() => deleteEducation(edu.id)}
+          className='btn btn-danger'
+        >
+          Delete
+        </button>
       </td>
     </tr>
   ));
