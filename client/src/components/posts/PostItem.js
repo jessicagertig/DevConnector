@@ -7,6 +7,8 @@ import { addLike, removeLike } from '../../actions/post';
 
 const PostItem = ({
   auth,
+  addLike,
+  removeLike,
   post: { _id, text, name, avatar, user, likes, comments, date },
 }) => {
   console.log(_id)
@@ -24,7 +26,7 @@ const PostItem = ({
           Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
         </p>
         <button
-          onClick={e => addLike(_id)}
+          onClick={() => addLike(_id)}
           className='btn btn-light'
         >
           <i className='fas fa-thumbs-up'></i>
