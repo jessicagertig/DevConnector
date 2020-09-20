@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
     case ADD_POST:
       return {
         ...state,
-        post: [...state.posts, payload],
+        post: [payload, ...state.posts],
         loading: false,
       };
     case POST_ERROR:
@@ -39,7 +39,7 @@ export default function (state = initialState, action) {
       console.log('payload', payload);
       return {
         ...state,
-        posts: state.posts.filter(post => post._id !== payload),
+        posts: state.posts.filter(post => post._id !== payload.id),
         loading: false,
       };
     case UPDATE_LIKES:
