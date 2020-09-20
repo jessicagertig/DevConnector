@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 
+//PrivateRoute is updated to accomodate the Redux subscription, dealing withe auth headers, so it allows loading to be true while waiting for user to be authenicated
 const PrivateRoute = ({
   component: Component,
   auth: { isAuthenticated, loading },
