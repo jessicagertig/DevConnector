@@ -10,8 +10,6 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     getProfiles();
   }, [getProfiles]);
 
-  console.log('profiles', profiles);
-
   return (
     <Fragment>
       {loading ? (

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -26,7 +26,7 @@ const CommentItem = ({
         </p>
         {!auth.loading && user === auth.user._id && (
           <button
-            onClick={() => deleteComment(postId)}
+            onClick={() => deleteComment(postId, _id)}
             type='button'
             className='btn btn-danger'
           >
