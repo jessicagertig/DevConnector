@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPost } from '../../actions/post';
-import Spinner from '../layout/Spinner'
+import Spinner from '../layout/Spinner';
 import PostItem from '../posts/PostItem';
+import CommentForm from './CommentForm';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
@@ -14,13 +15,14 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
   return loading || post === null ? (
     <Spinner />
   ) : (
-  <Fragment>
-    <Link to='/posts' className='btn'>
-      Back To Posts
-    </Link>
-    <PostItem post={post} showActions={false} />
-  </Fragment>
-  )
+    <Fragment>
+      <Link to='/posts' className='btn'>
+        Back To Posts
+      </Link>
+      <PostItem post={post} showActions={false} />
+      <CommentForm postId={post._id} />
+    </Fragment>
+  );
 };
 
 Post.propTypes = {
