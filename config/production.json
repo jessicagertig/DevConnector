@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://ChoppedPrunes:ChoppedPrunes@devconnector.2bivm.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "49f21b64d1ab21039129",
+  "githubToken": "d0728a0526f9013dba5c1e3169b04e8284699a54"
+}
